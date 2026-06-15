@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket Kumar | DevOps Engineer & Automation Portfolio</title>
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --dark-hero: #0f172a;
+            --border-color: #e2e8f0;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* --- Header / Hero --- */
+        header {
+            background: radial-gradient(circle at top right, #1e3a8a, #0f172a 60%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px 80px 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            font-weight: 400;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 1px 0px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* --- Sections --- */
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 90px 24px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 35px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.02em;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 40px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        /* --- Skills --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-badge {
+            background: var(--bg-surface);
+            color: var(--text-main);
+            padding: 10px 20px;
+            border-radius: var(--radius-lg);
+            font-weight: 550;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+        }
+
+        /* --- Projects --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* --- Contact --- */
+        .contact-wrapper {
+            background: var(--bg-surface);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info {
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .contact-info strong {
+            color: var(--text-main);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(37, 99, 235, 0.05);
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            section { padding: 60px 20px; }
+            nav a { margin: 0 10px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Aniket Kumar</h1>
+    <p>DevOps Engineer | Python & Cloud Automation Specialist</p>
+    <a href="#contact" class="btn">Get In Touch</a>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Hello! I'm Aniket Kumar, a DevOps and Systems Engineer focused on automation, infrastructure delivery pipelines, and robust cloud architectures. I build highly sustainable environments utilizing Python, Linux, and containerization ecosystem layers.
+    </p>
+    <p>
+        I enjoy turning manual, repetitive pipeline overhead into dynamic, programmatic deployment steps. My goal is to build, scale, and optimize highly resilient production applications.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-container">
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">Linux Administration</span>
+        <span class="skill-badge">Shell Scripting</span>
+        <span class="skill-badge">Docker</span>
+        <span class="skill-badge">AWS Cloud Services</span>
+        <span class="skill-badge">FastAPI Ecosystem</span>
+        <span class="skill-badge">Git & Version Control</span>
+        <span class="skill-badge">GitHub Actions / CI-CD</span>
+        <span class="skill-badge">Systems Automation</span>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+
+        <div class="card project-card">
+            <div>
+                <h3>Internal DevOps Utilities API</h3>
+                <p>Designed and built a core infrastructure helper API leveraging FastAPI. Streamlines cloud asset queries, parsing AWS resource groups and processing log distribution data patterns.</p>
+            </div>
+            <a href="https://github.com/aniket07-png/Python" class="project-link" target="_blank">View Repository →</a>
+        </div>
+
+        <div class="card project-card">
+            <div>
+                <h3>Automated Log Analyzer</h3>
+                <p>An efficient text/regex engine written in Python to scan log directories, isolate stack traces (INFO, WARNING, ERROR), and format diagnostics into clean JSON artifacts.</p>
+            </div>
+            <a href="https://github.com/aniket07-png/Python" class="project-link" target="_blank">View Repository →</a>
+        </div>
+
+        <div class="card project-card">
+            <div>
+                <h3>Production Shell Toolbox</h3>
+                <p>A repository containing highly optimized shell scripts built using modern Bash conventions (`set -euo pipefail`) covering disk management tracking, automated backups, and cleanup daemons.</p>
+            </div>
+            <a href="https://github.com/aniket07-png/Shell-Scripting" class="project-link" target="_blank">View Repository →</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <p><strong>Email:</strong> your-email@example.com</p>
+            <p><strong>GitHub:</strong> github.com/aniket07-png</p>
+            <p><strong>LinkedIn:</strong> linkedin.com/in/yourusername</p>
+        </div>
+        <a class="btn" href="mailto:your-email@example.com">Send Direct Email</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Aniket Kumar. Crafted with focus on Systems & Design Reliability.</p>
+</footer>
+
+</body>
+</html>
